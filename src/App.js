@@ -2,13 +2,17 @@ import React, { Component } from 'react';
 import './App.css';
 import ResultComponent from './Components/ResultComponent';
 import KeyPad from "./Components/keyPad";
+//import DarkModeToggle from "react-dark-mode-toggle";
+import Button1 from "./Components/Button";
+ 
 
 class App extends Component {
     constructor(){
         super();
 
         this.state = {
-            result: ""
+            result: "",
+            isShowing:false
         }
     }
 
@@ -68,6 +72,13 @@ class App extends Component {
         })
     };
 
+    handleClick=()=>{
+        console.log("button clicked");
+        this.setState({isShowing:!this.state.isShowing});
+        
+        
+    }
+
     render() {
         return (
             <div>
@@ -75,7 +86,10 @@ class App extends Component {
                     <h1>Simple Calculator</h1>
                     <ResultComponent result={this.state.result}/>
                     <KeyPad onClick={this.onClick}/>
-                </div>
+                </div><br/>
+                {this.state.isShowing && <Button1/>}
+                <button onClick={this.handleClick}>Scientific Mode</button>
+ 
             </div>
         );
     }
