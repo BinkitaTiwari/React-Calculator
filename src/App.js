@@ -11,12 +11,13 @@ class App extends Component {
         super();
 
         this.state = {
-            result: "",
+            result: " ",
             isShowing:false
         }
     }
 
     onClick = button => {
+        //window.alert(button)
 
         if(button === "="){
             this.calculate()
@@ -28,7 +29,15 @@ class App extends Component {
         else if(button === "CE"){
             this.backspace()
         }
-
+        else if(button==="root"){
+            this.setState({result:(Math.sqrt(this.state.result))+ ""})
+        }
+        else if(button==="square"){
+            this.setState({result:(Math.pow(this.state.result,2))+ ""})
+        }
+        else if(button==="flap"){
+            this.setState({result:this.state.result *(-1)+ ""})
+        }
         else {
             this.setState({
                 result: this.state.result + button
@@ -38,7 +47,7 @@ class App extends Component {
 
 
     calculate = () => {
-        var checkResult = ''
+        var checkResult = '';
         if(this.state.result.includes('--')){
             checkResult = this.state.result.replace('--','+')
         }
@@ -49,7 +58,7 @@ class App extends Component {
 
         try {
             this.setState({
-                // eslint-disable-next-line
+                
                 result: (eval(checkResult) || "" ) + ""
             })
         } catch (e) {
@@ -78,7 +87,7 @@ class App extends Component {
         
         
     }
-
+    
     render() {
         return (
             <div>
@@ -87,7 +96,7 @@ class App extends Component {
                     <ResultComponent result={this.state.result}/>
                     <KeyPad onClick={this.onClick}/>
                 </div><br/>
-                {this.state.isShowing && <Button1/>}
+                {this.state.isShowing && <Button1 onClick={this.onClick}/>}
                 <button onClick={this.handleClick}>Scientific Mode</button>
  
             </div>
