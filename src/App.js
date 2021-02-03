@@ -95,9 +95,12 @@ class App extends Component {
                     <h1>Simple Calculator</h1>
                     <ResultComponent result={this.state.result}/>
                     <KeyPad onClick={this.onClick}/>
-                </div><br/>
-                {this.state.isShowing && <Button1 onClick={this.onClick}/>}
+                </div>
+                <div className="container">
+                {this.state.isShowing && <Button1 onClick={this.onClick}/>}<br/>
                 <button onClick={this.handleClick}>Scientific Mode</button>
+                </div>
+                
  
             </div>
         );
