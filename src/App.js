@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import './App.css';
 import ResultComponent from './Components/ResultComponent';
 import KeyPad from "./Components/keyPad";
-//import DarkModeToggle from "react-dark-mode-toggle";
 import Button1 from "./Components/Button";
+import './Styles/Theme.css';
  
 
 class App extends Component {
@@ -12,7 +12,9 @@ class App extends Component {
 
         this.state = {
             result: " ",
-            isShowing:false
+            isShowing:false,
+            theme: 'dark'
+           
         }
     }
 
@@ -87,19 +89,24 @@ class App extends Component {
         
         
     }
+
+    
     
     render() {
         return (
-            <div>
+            <div className={`App ${this.state.theme}`}>
+            
                 <div className="calculator-body">
                     <h1>Simple Calculator</h1>
                     <ResultComponent result={this.state.result}/>
                     <KeyPad onClick={this.onClick}/>
                 </div>
+
                 <div className="container">
-                {this.state.isShowing && <Button1 onClick={this.onClick}/>}<br/>
-                <button onClick={this.handleClick}>Scientific Mode</button>
+                    {this.state.isShowing && <Button1 onClick={this.onClick}/>}<br/>
+                    <button onClick={this.handleClick}>Scientific Mode</button>
                 </div>
+               
                 
  
             </div>
