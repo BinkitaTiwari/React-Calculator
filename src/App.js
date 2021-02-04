@@ -92,11 +92,14 @@ class App extends Component {
     changeColor1=()=>{
         document.body.style.background = "White";
         document.body.style.color = "black";
+        //document.querySelector("button").style.backgroundColor = "#f0f0f0";
     }
 
     changeColor2=()=>{
         document.body.style.background = "black";
         document.body.style.color = "white";
+        //document.querySelector("btn2").style.backgroundColor = "#666";
+        
     }
     
     
