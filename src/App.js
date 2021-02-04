@@ -3,7 +3,7 @@ import './App.css';
 import ResultComponent from './Components/ResultComponent';
 import KeyPad from "./Components/keyPad";
 import Button1 from "./Components/Button";
-import './Styles/Theme.css';
+//import './Styles/Theme.css';
  
 
 class App extends Component {
@@ -13,7 +13,7 @@ class App extends Component {
         this.state = {
             result: " ",
             isShowing:false,
-            theme: 'dark'
+            //theme: 'dark'
            
         }
     }
@@ -89,12 +89,23 @@ class App extends Component {
         
         
     }
+    changeColor1=()=>{
+        document.body.style.background = "White";
+        document.body.style.color = "black";
+    }
 
+    changeColor2=()=>{
+        document.body.style.background = "black";
+        document.body.style.color = "white";
+    }
     
     
     render() {
         return (
             <div className={`App ${this.state.theme}`}>
+
+                <button onClick={this.changeColor1} id="btn1">Light Mode</button>
+                <button onClick={this.changeColor2} id="btn2">Dark Mode</button>
             
                 <div className="calculator-body">
                     <h1>Simple Calculator</h1>
